@@ -1,0 +1,20 @@
+# Mac
+.DS_Store
+
+# node.js
+
+b-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+pids
+logs
+results
+
+npm-debug.log
+node_modules
