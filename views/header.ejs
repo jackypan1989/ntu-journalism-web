@@ -1,7 +1,19 @@
 <header>
-<div class="hero-unit">
- 	<h1>國立台灣大學新聞研究所</h1>
-</div>
-  
+
+	<h1>國立台灣大學新聞研究所</h1>
+	<ul class="nav nav-pills">
+		<% for(var i=0; i<pages.length; i++) { %>
+		<li class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+				<%= pages[i].title %> <span class="caret"></span>
+			</a>
+			<ul class="dropdown-menu">
+				<% for(var j=0; j<pages[i].subPages.length; j++) { %>
+				<li><a href="/p/<%=pages[i].title%>/<%=pages[i].subPages[j].title %>"><%= pages[i].subPages[j].title %></a></li>
+				<% } %>
+			</ul>
+		</li>
+		<% } %>
+	</ul>
 </header>
 <hr>

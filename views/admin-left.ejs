@@ -1,0 +1,24 @@
+
+  <div class="col-lg-4">
+	<div class="well">
+		<ul class="nav nav-list">
+			<% for(var i=0; i<pages.length; i++) { %>
+			<li>
+				<label class="tree-toggle nav-header">
+					<%= pages[i].title %>
+				</label>
+				<ul class="nav nav-list tree">
+					<% for(var j=0; j<pages[i].subPages.length; j++) { %>
+					<li>
+						<a class="tree-toggle-nav-content" first="<%= pages[i].title %>" second="<%= pages[i].subPages[j].title %>">
+							<%= pages[i].subPages[j].title %>
+						</a>
+					</li>
+					<% } %>
+				</ul>
+			</li>
+			<li class="divider"></li>
+			<% } %>
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Pivotal Search</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+
+      <script src="http://code.jquery.com/jquery.js"></script>
+
+      <!-- styles -->
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css">
+
+      <!-- Latest compiled and minified JavaScript -->
+      <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
+
+      <link href="ckeditor/skins/moono/editor.css?t=D6IE" rel="stylesheet">
+
+
+    </head>
+    <body>
+      <div class="container">
+        <h1>網站後台</h1>
+        <div class="row">
+          <% include admin-left %>
+          <div class="col-lg-8">
+            <div id="info">
+              <h4 id="location"></h4>
+              <button type="button" id="submitBtn" class="btn btn-warning">save</button><p>
+
+            </div>
+            <div id="editor">
+              <textarea class="ckeditor" name="editor1"></textarea>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
+      <script src="bootstrap/js/bootstrap.min.js"></script>
+      
+
+      <script src="ckeditor/ckeditor.js"></script>
+      <script>
+      var first, second;
+      $().ready(function(){
+         $('#info').hide();
+      });
+
+      $('.tree-toggle-nav-content').click(function () {
+        first = $(this).attr('first');
+        second = $(this).attr('second');
+        $.get('/admin/p/'+first+'/'+second,function(data,status){
+          $('#info').show();
+          $('#location').html('location : '+ first + ' / ' +second);
+          console.log(data);
+          console.log(CKEDITOR.instances);
+          CKEDITOR.instances.editor1.setData(data.content);
+        });
+      });
+
+      $(document).on('click','#submitBtn', function(){
+        var data = CKEDITOR.instances.editor1.getData();
+        alert(data);
+        $.post('/admin/p/'+first+'/'+second,
+        {
+          first:first,
+          second:second,
+          html:data
+        },
+        function(data,status){
+          alert("Data: " + data + "\nStatus: " + status);
+        });
+      });
+
+      $('.tree-toggle').click(function () {
+        $(this).parent().children('ul.tree').toggle(200);
+      });
+
+      </script>
+    </body>
+    </html>

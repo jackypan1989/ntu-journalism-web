@@ -7,7 +7,5 @@
 		"express": "3.x",
 		"ejs": "*",
 		"mongoose": "*",
-		"forever": "*",
-		"forever-monitor": "*"
 	}
 }

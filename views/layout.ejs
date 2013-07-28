@@ -1,25 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Pivotal Search</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
+<head>
+  <meta charset="utf-8">
+  <title>Pivotal Search</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+  <!-- HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+      <![endif]-->
 
-    <!-- styles -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+      <script src="http://code.jquery.com/jquery.js"></script>
 
-  </head>
-  <body>
-    <% include header %>
-    <% body %>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="http://code.jquery.com/jquery.js"></script>
-  </body>
-</html>
+      <!-- styles -->
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css">
+
+      <!-- Latest compiled and minified JavaScript -->
+      <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
+
+      <style>
+      body {
+        padding: 20px;
+        font-family: "微軟正黑體";
+      }
+
+      h1 {
+        font-family: "微軟正黑體";
+      }
+
+      .container {
+        margin: 0 auto;
+        max-width: 1000px;
+      }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <div class="row">
+          <% include header %>
+          <%- content %>
+          <div class="row">
+          </div>
+
+          
+
+        </body>
+        </html>
