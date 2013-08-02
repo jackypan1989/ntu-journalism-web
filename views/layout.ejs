@@ -11,40 +11,40 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
       <![endif]-->
 
-      <script src="http://code.jquery.com/jquery.js"></script>
-
       <!-- styles -->
       <!-- Latest compiled and minified CSS -->
       <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css">
+      <link rel="stylesheet" href="/css/header.css">
+      <link rel="stylesheet" href="/css/content.css">
+      <link rel="stylesheet" href="/css/footer.css">
 
       <!-- Latest compiled and minified JavaScript -->
+      <script src="http://code.jquery.com/jquery.js"></script>
       <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
 
       <style>
-      body {
-        padding: 20px;
-        font-family: "微軟正黑體";
-      }
-
+/*
       h1 {
         font-family: "微軟正黑體";
       }
 
       .container {
-        margin: 0 auto;
+        padding: 20px;
+        margin: 10px auto;
         max-width: 1000px;
       }
-      </style>
-    </head>
-    <body>
-      <div class="container">
-        <div class="row">
-          <% include header %>
-          <%- content %>
-          <div class="row">
-          </div>
 
-          
+      .content {
+        min-height: 500px;
 
-        </body>
-        </html>
+        }*/
+        </style>
+      </head>
+      <body>
+        <% include header %>
+        <% include content %>
+        <% include footer %>
+
+
+      </body>
+      </html>

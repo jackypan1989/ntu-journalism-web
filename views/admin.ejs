@@ -21,18 +21,50 @@
       <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
 
       <link href="ckeditor/skins/moono/editor.css?t=D6IE" rel="stylesheet">
+      <style>
+      body {
+        padding: 20px;
+        font-family: "微軟正黑體";
+      }
 
+      h1,h6 {
+        font-family: "微軟正黑體";
+        font-weight: bold;
+      }
+
+      .container {
+        margin: 10px auto;
+        max-width: 1100px;
+      }
+
+      </style>
 
     </head>
     <body>
-      <div class="container">
+      <div class="container panel">
         <h1>網站後台</h1>
-        <div class="row">
+        <div class="container row">
           <% include admin-left %>
-          <div class="col-lg-8">
+          <div class="col-lg-9 panel">
             <div id="info">
               <h4 id="location"></h4>
-              <button type="button" id="submitBtn" class="btn btn-warning">save</button><p>
+              <button data-toggle="modal" href="#myModal" type="button" id="submitBtn" class="btn btn-primary">save</button><p>
+              <!-- Button trigger modal -->
+
+              <!-- Modal -->
+              <div class="modal fade in" id="myModal">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title">系統通知</h4>
+                    </div>
+                    <div class="modal-body">
+                      已完成修改
+                    </div>
+                  </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+              </div><!-- /.modal -->
 
             </div>
             <div id="editor">
@@ -50,8 +82,8 @@
       <script>
       var first, second;
       $().ready(function(){
-         $('#info').hide();
-      });
+       $('#info').hide();
+     });
 
       $('.tree-toggle-nav-content').click(function () {
         first = $(this).attr('first');
@@ -67,7 +99,7 @@
 
       $(document).on('click','#submitBtn', function(){
         var data = CKEDITOR.instances.editor1.getData();
-        alert(data);
+        //alert(data);
         $.post('/admin/p/'+first+'/'+second,
         {
           first:first,
@@ -75,7 +107,7 @@
           html:data
         },
         function(data,status){
-          alert("Data: " + data + "\nStatus: " + status);
+          //alert("Data: " + data + "\nStatus: " + status);
         });
       });
 

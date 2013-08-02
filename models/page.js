@@ -82,7 +82,7 @@
 
         getIndex: function(req, res) {
             var pages = res.doc;
-            res.render('layout', {content:null, pages:pages});
+            res.render('layout', {pages:pages, content:null});
         },
 
         getContent: function (req, res) {

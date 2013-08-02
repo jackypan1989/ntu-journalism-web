@@ -7,5 +7,6 @@
 		"express": "3.x",
 		"ejs": "*",
 		"mongoose": "*",
+		"i18n": "*"
 	}
 }
