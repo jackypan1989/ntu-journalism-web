@@ -15,7 +15,7 @@
 					</a>
 					<ul class="dropdown-menu">
 						<% for(var j=0; j<pages[i].subPages.length; j++) { %>
-						<li><a href="/p/<%=pages[i].title%>/<%=pages[i].subPages[j].title %>">
+						<li><a href="/p/<%=pages[i]._id%>/<%=pages[i].subPages[j]._id %>">
 							<%= pages[i].subPages[j].title %>
 						</span>
 					</a></li>

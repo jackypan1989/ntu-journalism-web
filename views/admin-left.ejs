@@ -1,4 +1,3 @@
-
   <div class="col-lg-3 well">
 		<ul class="nav nav-list">
 			<% for(var i=0; i<pages.length; i++) { %>
@@ -9,7 +8,7 @@
 				<ul class="nav nav-list tree">
 					<% for(var j=0; j<pages[i].subPages.length; j++) { %>
 					<li>
-						<a class="tree-toggle-nav-content" first="<%= pages[i].title %>" second="<%= pages[i].subPages[j].title %>">
+						<a class="tree-toggle-nav-content" first="<%= pages[i]._id %>" second="<%= pages[i].subPages[j]._id %>">
 							<%= pages[i].subPages[j].title %>
 						</a>
 					</li>
