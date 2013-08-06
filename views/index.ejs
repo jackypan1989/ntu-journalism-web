@@ -27,10 +27,8 @@
 
       .link {
         margin: 0px auto;
+        width : 900px;
         height : 200px;
-      }
-
-      .link .link-e-forum, .link .col-lg-7{
         padding-top:10px; 
         padding-left:10px; 
         padding-right:10px; 
@@ -38,6 +36,31 @@
         display: inline-block;
       }
 
+      .link img{
+        vertical-align: baseline;
+      }
+
+      .link .link-e-forum {
+        margin: 0px auto;
+        width : 345px;
+        height : 200px;
+        display: inline-block;
+      }
+
+      .link .link-fb {
+        margin: 0px auto;
+        width : 245px;
+        height : 200px;
+        display: inline-block;
+      }
+
+      .link .link-enroll {
+        margin: 0px auto;
+        margin-top: -100px;
+        width : 275px;
+        height : 200px;
+        display: inline-block;
+      }
 
       .carousel {
         background-repeat : no-repeat;
@@ -84,6 +107,7 @@
       .news {
         position: absolute;
         background-color: rgba(206,235,240,0.5);  
+        left: 60.5%;
         width : 300px;
         height : 350px;
         display : inline-block;
@@ -139,28 +163,26 @@
         </div>
         <div class="news">
           <p>最新消息</p>
-
         </div>
 
-        <div class="row link">
-          <div class="link-e-forum">
-            <img src="img/e-forum.png"></img>
-          </div>
-          <div>
-            <div>
-              <img src="img/activities.png"></img>
-              <img src="img/fb_sa.png"></img>
-              <img src="img/fb_aa.png"></img>
-              <img src="img/flickr.png"></img>
-            </div>
-            <div>
-              <img src="img/enroll.png"></img>
-            </div>
-          </div>
+        <div class="link">
+         <div class="link-e-forum">
+          <img src="img/e-forum.png"></img>
         </div>
-
-
+        <div class="link-fb">
+          <img src="img/activities.png"></img>
+          <img src="img/fb_sa.png"></img>
+          <img src="img/fb_aa.png"></img>
+          <img src="img/flickr.png"></img>
+        </div>
+        <div class="link-enroll">
+        <img src="img/enroll.png"></img>
+        <img src="img/image08.png"></img>
       </div>
-      <% include footer %>
-    </body>
-    </html>
+      </div>
+
+
+    </div>
+    <% include footer %>
+  </body>
+  </html>
