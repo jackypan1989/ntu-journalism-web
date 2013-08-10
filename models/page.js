@@ -9,7 +9,7 @@
     var translate = function (language, text) {
         // language array contains all the languages
         console.log(language + ' ' + text + ' ' );
-        return i18n[text];
+        return i18n[text] || text+'(無翻譯)';
     };
 
 
@@ -178,8 +178,48 @@
                 function(err,doc){
                     res.send(doc+'update sucess');
                 });
-        }
+        },
 
+        createClass: function (req, res) {
+            console.log(req.body);
+            var page = {
+                _id: req.body._id,
+                title: req.body.title,
+                html: '',
+                subPages: [] 
+            };
+
+            Page.create(page, function (err, doc) {
+                console.log("Create!");
+                res.redirect('/admin');
+            });
+
+        },
+
+        createPage: function (req, res) {
+            console.log(req.body);
+            var query = {
+                _id: req.body.classList,
+            };
+
+            var subPage =  { 
+                _id: req.body._id,
+                order: 0,
+                title: req.body.title,
+                html: ''
+            };
+
+            var update = {
+                '$push' : {'subPage': subPage}
+            };
+
+            Page.update(query, update, function (err, doc) {
+                console.log('update'+update);
+                console.log("Create!");
+                res.redirect('/admin');
+            });
+
+        }
     };
 
 }());
