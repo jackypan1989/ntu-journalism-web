@@ -50,7 +50,7 @@
               <label>主分類</label>
               <select name="classList">
                 <% for(var i=0; i<pages.length; i++) { %>
-                <option value="<%= pages[i].title %>"><%= pages[i].title %>
+                <option value="<%= pages[i]._id %>"><%= pages[i].title %>
                 </option>
                 <% } %>
               </select> 
@@ -73,6 +73,7 @@
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
 
+<p></p>
 
 </div>
 <ul class="nav nav-list">

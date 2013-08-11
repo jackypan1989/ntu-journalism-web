@@ -157,9 +157,9 @@
                 subPages: {$elemMatch:{title:req.params.second}}
             }; 
             Page.findOne(query, {_id:0,subPages:1} , function (err, doc) {
-                console.log(doc.subPages);
+                console.log(JSON.stringify(doc));
                 for (var i = 0 ; i<doc.subPages.length; i++) {
-                    if(doc.subPages[i].title == req.params.second) {
+                    if(doc.subPages[i].title === req.params.second) {
                         var html = doc.subPages[i].html;
                         res.send({content: html});
                     }
@@ -185,6 +185,7 @@
             var page = {
                 _id: req.body._id,
                 title: req.body.title,
+                order: 0,
                 html: '',
                 subPages: [] 
             };
@@ -199,7 +200,7 @@
         createPage: function (req, res) {
             console.log(req.body);
             var query = {
-                _id: req.body.classList,
+                _id: req.body.classList
             };
 
             var subPage =  { 
@@ -210,11 +211,10 @@
             };
 
             var update = {
-                '$push' : {'subPage': subPage}
+                $push : {'subPages': subPage}
             };
 
             Page.update(query, update, function (err, doc) {
-                console.log('update'+update);
                 console.log("Create!");
                 res.redirect('/admin');
             });

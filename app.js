@@ -16,7 +16,6 @@ app.configure(function(){
 mongoose.connect('mongodb://localhost/ntuj');
 
 var page = require('./models/page.js');
-var admin = require('./models/admin.js');
 
 // for initial
 app.get('/init', page.initialPage);
