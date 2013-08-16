@@ -12,29 +12,27 @@
         return i18n[text] || text+'(無翻譯)';
     };
 
-
     var pageSchema = new Schema({
         _id: String,
         order: Number,
         title: String,
         html: String,
         subPages: [
-        { 
-            _id: String,
-            order: Number,
-            title: String,
-            html: String
-        }
+            {
+                _id: String,
+                order: Number,
+                title: String,
+                html: String
+            }
         ]
     });
-
 
     var Page = mongoose.model('Page', pageSchema);
 
     module.exports = {
         initialPage: function(req, res){
             var pages = [
-            {   
+            {
                 order: 1,
                 _id: "introduction",
                 title: "introduction",
@@ -59,7 +57,7 @@
                 }
                 ]
             },
-            {   
+            {
                 order: 2,
                 _id: "faculty",
                 title: "faculty",
@@ -95,23 +93,28 @@
 
         dropPage: function(req, res){
             Page.remove({} ,function (err, doc) {
-                console.log("Remove!")
+                console.log("Remove!");
                 res.send("Remove!");
             });
         },
 
         // for guest
         loadPageTitle: function(req, res, next){
-            var query = {};
-            var projection = {
-                '_id':1, 
-                'title':1, 
-                'subPages._id':1,
-                'subPages.title':1, 
-                'subPages.html':1
-            };
+            var query = {},
+                projection = {
+                    '_id': 1,
+                    'title': 1,
+                    'subPages._id': 1,
+                    'subPages.title': 1,
+                    'subPages.html': 1
+                },
+                sort = {
+                    sort:{
+                        order: 1 //Sort by Date Added DESC
+                    }
+                };
             
-            Page.find(query, projection, function (err, doc) {
+            Page.find(query, projection, sort, function (err, doc) {
                 for(var i = 0; i < doc.length; i++) {
                     doc[i].title = translate(null,doc[i]._id);
                     for (var j = 0; j < doc[i].subPages.length; j++) {
@@ -133,9 +136,9 @@
         getContent: function (req, res) {
             var pages = res.doc;
             var query = {
-                _id: req.params.first, 
+                _id: req.params.first,
                 subPages: {$elemMatch:{_id:req.params.second}}
-            }; 
+            };
 
             Page.findOne(query, {_id:1,subPages:1} , function (err, doc) {
                 console.log(doc.subPages);
@@ -153,9 +156,9 @@
         getContentByAdmin: function (req, res) {
             var pages = res.doc;
             var query = {
-                title: req.params.first, 
+                title: req.params.first,
                 subPages: {$elemMatch:{title:req.params.second}}
-            }; 
+            };
             Page.findOne(query, {_id:0,subPages:1} , function (err, doc) {
                 console.log(JSON.stringify(doc));
                 for (var i = 0 ; i<doc.subPages.length; i++) {
@@ -172,7 +175,7 @@
             var query = {
                 title: req.body.first,
                 subPages: {$elemMatch:{title:req.body.second}}
-            }; 
+            };
 
             Page.findOneAndUpdate(query,{$set: {'subPages.$.html' : req.body.html }},
                 function(err,doc){
@@ -181,44 +184,69 @@
         },
 
         createClass: function (req, res) {
-            console.log(req.body);
-            var page = {
-                _id: req.body._id,
-                title: req.body.title,
-                order: 0,
-                html: '',
-                subPages: [] 
-            };
+            // console.log(req.body);
+            var query = {},
+                projection = {
+                    '_id': 1 ,
+                    'order': 1
+                },
+                option = {
+                    sort: {
+                        'order': -1
+                    }
+                };
 
-            Page.create(page, function (err, doc) {
-                console.log("Create!");
-                res.redirect('/admin');
+            Page.findOne(query, projection, option, function (err, doc) {
+                var max = doc.order;
+
+                var page = {
+                    _id: req.body._id,
+                    title: req.body.title,
+                    order: max+1,
+                    html: '',
+                    subPages: []
+                };
+
+                Page.create(page, function (err, doc) {
+                    console.log("Create!");
+                    res.redirect('/admin');
+                });
             });
-
         },
 
         createPage: function (req, res) {
-            console.log(req.body);
+            // console.log(req.body);
+
             var query = {
-                _id: req.body.classList
-            };
+                    '_id': req.body.classList
+                };
 
-            var subPage =  { 
-                _id: req.body._id,
-                order: 0,
-                title: req.body.title,
-                html: ''
-            };
+            Page.findOne(query, function (err, doc) {
+                var max = 0;
+                for (var i = 0 ; i<doc.subPages.length; i++) {
+                    if(doc.subPages[i].order > max) max = doc.subPages[i].order;
+                }
 
-            var update = {
-                $push : {'subPages': subPage}
-            };
+                var query = {
+                    '_id': req.body.classList
+                };
 
-            Page.update(query, update, function (err, doc) {
-                console.log("Create!");
-                res.redirect('/admin');
+                var subPage =  {
+                    _id: req.body._id,
+                    order: max+1,
+                    title: req.body.title,
+                    html: ''
+                };
+
+                var update = {
+                    $push : {'subPages': subPage}
+                };
+
+                Page.update(query, update, function (err, doc) {
+                    console.log("Create!");
+                    res.redirect('/admin');
+                });
             });
-
         }
     };
 
