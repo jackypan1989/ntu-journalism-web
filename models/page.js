@@ -146,7 +146,7 @@
                     if(doc.subPages[i].title == req.params.second) {
                         var html = doc.subPages[i].html;
                         console.log(doc.subPages[i].order);
-                        res.render('layout',{ pages:pages, content: html });
+                        res.render('layout',{ pages:pages, leftHeader:doc.subPages, content: html });
                     }
                 }
             });

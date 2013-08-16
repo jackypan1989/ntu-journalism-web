@@ -1,48 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Pivotal Search</title>
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <head>
+    <meta charset="utf-8">
+    <title>Pivotal Search</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <% include head %>
+        
+    <script>
+      YUI({
+          classNamePrefix: 'pure'
+      }).use('gallery-sm-menu', function (Y) {
 
-  <!-- HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-      <![endif]-->
+          var horizontalMenu = new Y.Menu({
+              container         : '#horizontal-menu',
+              sourceNode        : '#std-menu-items',
+              orientation       : 'horizontal',
+              hideOnOutsideClick: false,
+              hideOnClick       : false
+          });
 
-      <!-- styles -->
-      <!-- Latest compiled and minified CSS -->
-      <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css">
-      <link rel="stylesheet" href="/css/header.css">
-      <link rel="stylesheet" href="/css/content.css">
-      <link rel="stylesheet" href="/css/footer.css">
+          horizontalMenu.render();
+          horizontalMenu.show();
 
-      <!-- Latest compiled and minified JavaScript -->
-      <script src="http://code.jquery.com/jquery.js"></script>
-      <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
-
-      <style>
-/*
-      h1 {
-        font-family: "微軟正黑體";
-      }
-
-      .container {
-        padding: 20px;
-        margin: 10px auto;
-        max-width: 1000px;
-      }
-
-      .content {
-        min-height: 500px;
-
-        }*/
-        </style>
-      </head>
-      <body>
-        <% include header %>
+      });
+    </script>
+  </head>
+  
+  <body>
+    <% include header %>
+    <div class="pure-g content-all">
+      <div class="pure-u-1-3">
+        <% include header-left %>
+      </div>
+      <div class="pure-u-2-3">
         <% include content %>
-        <% include footer %>
-      </body>
-      </html>
+      </div>
+    </div>
+    <% include footer %>
+  </body>
+</html>        
+      

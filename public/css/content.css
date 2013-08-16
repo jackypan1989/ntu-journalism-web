@@ -1,8 +1,7 @@
-.content {
+.content-all {
 	width : 900px;
 	height : 500px;
-	margin: 0px auto;
-	z-index: 2;
-	margin-top:-500px;
+	z-index: 0;
+	margin: auto auto auto auto; 
 	box-shadow: 1px 1px 5px #999;
 }

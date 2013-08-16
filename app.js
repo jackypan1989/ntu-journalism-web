@@ -37,5 +37,5 @@ app.post('/admin/p/:first/:second', page.edit);
 app.post('/admin/createClass', page.createClass);
 app.post('/admin/createPage', page.createPage);
 
-app.listen(3000);
+app.listen(80);
 console.log('Listening on port 3000');
