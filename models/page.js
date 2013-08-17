@@ -4,12 +4,13 @@
     var mongoose = require('mongoose');
     var Schema = mongoose.Schema;
 
+    var i18n = require('../languages/i18n.js');
+    var zh = require('../languages/zh-tw.js');
 
-    var i18n = require('../languages/zh-tw.js');
     var translate = function (language, text) {
         // language array contains all the languages
         console.log(language + ' ' + text + ' ' );
-        return i18n[text] || text+'(無翻譯)';
+        return zh[text] || text+'(無翻譯)';
     };
 
     var pageSchema = new Schema({
@@ -31,6 +32,8 @@
 
     module.exports = {
         initialPage: function(req, res){
+            i18n.createText();
+
             var pages = [
             {
                 order: 1,
@@ -83,6 +86,9 @@
                 ]
             },
             ];
+
+
+
 
 
             Page.create(pages ,function (err, doc) {
