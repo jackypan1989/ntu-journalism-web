@@ -1,17 +1,29 @@
 var express = require('express');
-var app = express();
 var path = require('path');
 var mongoose = require('mongoose');
 var url  = require('url');
+var lessMiddleware = require('less-middleware');
+var pubDir = path.join(__dirname, 'public');
+
+var app = express();
 
 app.set('view engine', 'ejs');
 
 app.configure(function(){
-	app.use(express.bodyParser());
-	app.use(express.methodOverride());
-	app.use(app.router);
-	app.use(express.static(path.join(__dirname, 'public')));
+    app.use(express.bodyParser());
+    app.use(express.methodOverride());
+    app.use(app.router);
+    app.use(lessMiddleware({
+        // should be the URI to your css directory from the location bar in your browser
+        src: pubDir, // or '../less' if the less directory is outside of /public
+        compress: true,
+        debug: true
+    }));
+
+    app.use(express.static(pubDir));
 });
+
+console.log(__dirname + '/public');
 
 mongoose.connect('mongodb://localhost/ntuj');
 
@@ -38,4 +50,4 @@ app.post('/admin/createClass', page.createClass);
 app.post('/admin/createPage', page.createPage);
 
 app.listen(80);
-console.log('Listening on port 3000');
+console.log('Listening on port 80');

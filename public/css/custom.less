@@ -1,0 +1,208 @@
+.header {
+	background-image : url(../img/image01.png);
+	width : 1100px;
+	height : 155px;
+	margin: auto;
+	cursor: pointer;
+
+	.header-title {
+		background-image : url(../img/image02.png);
+		width : 260px;
+		height : 90px;
+		margin-left: 90px; 
+		margin-top: 20px;
+		display: inline-block;
+	}
+
+	.header-small-title {
+		background-image : url(../img/image03.png);
+		background-repeat : no-repeat;
+		width : 310px;
+		height : 60px;
+		margin-left: 340px; 
+		margin-top: 20px;
+		display: inline-block;
+	}
+
+	.header-navi-bar {
+		background : #004F78;
+		border-style : outset outset none outset ;
+		border-color : #230982;
+		border-width : 1px;
+		border-radius: 5px;
+		width : 900px;
+		height : 40px;
+		margin-left: 100px; 
+		box-shadow: 1px 1px 5px #999;
+		display: inline-block;
+	}
+
+	.header-navi-bar-text {
+		font-family : 微軟正黑體;
+		font-size : 15px;
+		font-weight: bolder;
+		color : #FFFFFF;
+		text-outline : #FFFFFF;
+		padding-left: 20px;
+	}
+}
+
+.content {
+	position: relative;
+	width : 900px;
+	height : 500px;
+	margin: auto; 
+	box-shadow: 1px 1px 5px #999; 
+
+	.col-md-2, .col-md-4, .col-md-8, .col-md-10 {
+		padding-left:  0;
+		padding-right:  0;
+	}
+
+	.link {
+        position: relative;
+        margin: 0px auto;
+        width : 900px;
+        height : 200px;
+        padding-top:10px; 
+        padding-left:10px; 
+        padding-right:10px; 
+        padding-bottom:10px; 
+        display: inline-block;
+
+        img {
+        	vertical-align: baseline;
+      	}
+
+      	.link-e-forum {
+	        position: absolute;
+	        top: 10px;
+	        margin: 0px auto;
+	        width : 345px;
+	        height : 200px;
+	        display: inline-block;
+      	}
+
+        .link-fb {
+            position: absolute;
+            top: 10px;
+            left: 325px;
+            margin: 0px auto;
+            width : 245px;
+            height : 200px;
+            display: inline-block;
+        }
+
+        .link-enroll {
+            position: absolute;
+            top: 2px;
+            left: 600px;
+            margin: 0px auto;
+            width : 275px;
+            height : 200px;
+            display: inline-block;
+        }
+    }
+
+    .carousel {
+        background-repeat : no-repeat;
+        width : 600px;
+        height : 350px;
+        display : inline-block;
+
+        .carousel-indicators {
+            top : 5%;
+        }
+
+        .carousel-control .icon-prev{
+            top : 90%;
+            left : 25%;
+        }
+
+        .carousel-control .icon-next {
+            top : 90%;
+            left : 75%;
+        }
+
+        .carousel-caption{
+            left : 0%;
+            bottom : 0%;
+            z-index: 0;
+            width : 600px;
+            height : 55px;
+            background-color: rgba(0,0,0,0.5); 
+
+            .carousel-text{
+                top : 0%;
+                z-index: 1;
+                font-family : 微軟正黑體;
+                font-size : 16px;
+                color : #FFFFFF;
+                color : rgba(255,255,255,1);
+                opacity:1;  
+                font-weight: bolder;  
+            } 
+        }
+    }
+
+    .news {
+        background-color: rgba(206,235,240,0.5);
+        height : 350px;
+        padding: 20px;
+        display : inline-block;
+
+        .title {
+            font-family : 微軟正黑體;
+            font-size : 20px;
+            color : #182945;
+            color : rgb(24, 41, 69);
+            text-outline : #182945;
+            text-outline : rgb(24, 41, 69);
+            margin-left: 10px;
+            font-weight: bolder;
+        }
+
+        .table tbody>tr>td {
+            border: 0;
+        }
+
+        .read-more {
+            text-align: right;
+            margin-left : auto; 
+            margin-right : 0; 
+        }
+    }
+
+    .header-left {
+        position: relative;
+        background : #DFE6F2;
+        background : rgba(223, 230, 242, 1);
+        height : 500px; 
+        .list-text {
+            background : #DFE6F2;
+            background : rgba(223, 230, 242, 1);
+            text-align: center;
+        }
+    }
+
+    .page-content {
+        padding: 30px;
+    }
+}
+
+.footer {
+	background : #1A1A1A;
+	background : rgba(26, 26, 26, 1);
+	margin: 0px auto;
+	width : 1100px;
+	height : 90px;
+	overflow : hidden;
+
+	p {
+		font-family : 微軟正黑體;
+		font-size : 11px;
+		line-height : 21px;
+		color : #FFFFFF;
+		color : rgb(255, 255, 255);
+	}
+}

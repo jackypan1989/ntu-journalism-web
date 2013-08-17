@@ -7,6 +7,8 @@
 		"express": "3.x",
 		"ejs": "*",
 		"mongoose": "*",
-		"i18n": "*"
+		"i18n": "*",
+		"less": "*",
+		"less-middleware": "*"
 	}
 }

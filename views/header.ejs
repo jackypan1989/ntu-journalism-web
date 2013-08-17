@@ -1,27 +1,28 @@
-<header>
-	<div onclick="location.href='/';">
-		<div class="header-title"></div>
-		<div class="header-small-title"></div>
-
-		<div class="header-navi-bar">
-			<div id="horizontal-menu" class="sub-menu">
-			    <ul id="std-menu-items">
-			    	<% for(var i=0; i<pages.length; i++) { %>
-			    	<li> 
-			    		<a>
-						<%= pages[i].title%> 
-						</a>
-						<ul>
-							<% for(var j=0; j<pages[i].subPages.length; j++) { %>
-							<li><a href="/p/<%=pages[i]._id%>/<%=pages[i].subPages[j]._id %>">
-								<%= pages[i].subPages[j].title %>
-							</a></li>
-							<% } %>
-						</ul>
-					</li>	
-					<% } %>
-			    </ul>
-			</div>
-		</div>
-	</div> 
-</header>
+<div class="header">
+    <div onclick="location.href='/';">
+        <div class="header-title"></div>
+        <div class="header-small-title"></div>
+    </div>
+    
+    <div class="header-navi-bar">
+        <ul class="nav nav-pills">
+        <% for(var i=0; i<pages.length; i++) { %>
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <span class="header-navi-bar-text">
+                <%= pages[i].title %> 
+            </span>
+            <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <% for(var j=0; j<pages[i].subPages.length; j++) { %>
+                <li><a href="/p/<%=pages[i]._id%>/<%=pages[i].subPages[j]._id %>">
+                    <%= pages[i].subPages[j].title %>
+                </a></li>
+                <% } %>
+            </ul>
+        </li>
+        <% } %>
+        </ul>
+    </div>
+</div>
