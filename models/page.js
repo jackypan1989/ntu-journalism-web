@@ -137,12 +137,18 @@
             Page.findOne(query, {_id:1,subPages:1} , function (err, doc) {
                 //console.log(doc.subPages);
                 for (var i = 0 ; i<doc.subPages.length; i++) {
-                    if(doc.subPages[i].title == req.params.second) {
+                    doc.subPages[i].title = i18n.readText(doc.subPages[i]._id);
+                }
+
+                for (var i = 0 ; i<doc.subPages.length; i++) {
+                    doc.subPages[i].title = i18n.readText(doc.subPages[i]._id);
+                    if(doc.subPages[i]._id == req.params.second) {
                         var html = doc.subPages[i].html;
                         //console.log(doc.subPages[i].order);
-                        res.render('layout',{ pages:pages, leftHeader:doc.subPages, content: html });
+                        res.render('layout',{ pages:pages, leftHeader:doc.subPages, content: html, first: doc._id });
                     }
                 }
+
             });
         },
 
