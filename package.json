@@ -9,6 +9,7 @@
 		"mongoose": "*",
 		"i18n": "*",
 		"less": "*",
-		"less-middleware": "*"
+		"less-middleware": "*",
+		"async": "*"
 	}
 }

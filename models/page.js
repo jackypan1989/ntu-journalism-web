@@ -6,12 +6,7 @@
 
     var i18n = require('../languages/i18n.js');
     var zh = require('../languages/zh-tw.js');
-
-    var translate = function (language, text) {
-        // language array contains all the languages
-        console.log(language + ' ' + text + ' ' );
-        return zh[text] || text+'(無翻譯)';
-    };
+    var async = require('async');
 
     var pageSchema = new Schema({
         _id: String,
@@ -32,8 +27,6 @@
 
     module.exports = {
         initialPage: function(req, res){
-            i18n.createText();
-
             var pages = [
             {
                 order: 1,
@@ -87,19 +80,15 @@
             },
             ];
 
-
-
-
-
             Page.create(pages ,function (err, doc) {
-                console.log("Initialize!");
+                //console.log("Initialize!");
                 res.send("Initialize!");
             });
         },
 
         dropPage: function(req, res){
             Page.remove({} ,function (err, doc) {
-                console.log("Remove!");
+                //console.log("Remove!");
                 res.send("Remove!");
             });
         },
@@ -122,16 +111,15 @@
             
             Page.find(query, projection, sort, function (err, doc) {
                 for(var i = 0; i < doc.length; i++) {
-                    doc[i].title = translate(null,doc[i]._id);
+                    doc[i].title = i18n.readText(doc[i]._id);
                     for (var j = 0; j < doc[i].subPages.length; j++) {
-                        doc[i].subPages[j].title = translate(null,doc[i].subPages[j]._id);
+                        doc[i].subPages[j].title = i18n.readText(doc[i].subPages[j]._id);
                     }
                 }
 
                 res.doc = doc;
                 next();
             });
-            console.log("execute middle ware");
         },
 
         getIndex: function(req, res) {
@@ -147,11 +135,11 @@
             };
 
             Page.findOne(query, {_id:1,subPages:1} , function (err, doc) {
-                console.log(doc.subPages);
+                //console.log(doc.subPages);
                 for (var i = 0 ; i<doc.subPages.length; i++) {
                     if(doc.subPages[i].title == req.params.second) {
                         var html = doc.subPages[i].html;
-                        console.log(doc.subPages[i].order);
+                        //console.log(doc.subPages[i].order);
                         res.render('layout',{ pages:pages, leftHeader:doc.subPages, content: html });
                     }
                 }
@@ -177,7 +165,7 @@
         },
 
         edit: function (req, res) {
-            console.log(req.body);
+            //console.log(req.body);
             var query = {
                 title: req.body.first,
                 subPages: {$elemMatch:{title:req.body.second}}
@@ -190,68 +178,90 @@
         },
 
         createClass: function (req, res) {
-            // console.log(req.body);
-            var query = {},
-                projection = {
-                    '_id': 1 ,
-                    'order': 1
+            async.series([
+                function (callback) {
+                    i18n.createText(req.body._id, req.body.title);
+                    callback(null);
                 },
-                option = {
-                    sort: {
-                        'order': -1
-                    }
-                };
+                function (callback) {
+                    var query = {},
+                        projection = {
+                            '_id': 1 ,
+                            'order': 1
+                        },
+                        option = {
+                            sort: {
+                                'order': -1
+                            }
+                        };
 
-            Page.findOne(query, projection, option, function (err, doc) {
-                var max = doc.order;
+                    Page.findOne(query, projection, option, function (err, doc) {
+                        var max = doc.order;
 
-                var page = {
-                    _id: req.body._id,
-                    title: req.body.title,
-                    order: max+1,
-                    html: '',
-                    subPages: []
-                };
+                        var page = {
+                            _id: req.body._id,
+                            title: req.body._id,
+                            order: max+1,
+                            html: '',
+                            subPages: []
+                        };
 
-                Page.create(page, function (err, doc) {
-                    console.log("Create!");
-                    res.redirect('/admin');
-                });
+                        console.log(req.body._id);
+
+                        Page.create(page, function (err, doc) {
+                            console.log("do!");
+                            callback(null);
+                        });
+                    });
+                }
+            ],
+            function (err, result) {
+                res.redirect('/admin');
             });
         },
 
         createPage: function (req, res) {
-            // console.log(req.body);
+            async.series([
+                function(callback) {
+                    i18n.createText(req.body._id, req.body.title);
+                    callback(null);
+                },
 
-            var query = {
-                    '_id': req.body.classList
-                };
+                function(callback) {
+                    var query = {
+                        '_id': req.body.classList
+                    };
 
-            Page.findOne(query, function (err, doc) {
-                var max = 0;
-                for (var i = 0 ; i<doc.subPages.length; i++) {
-                    if(doc.subPages[i].order > max) max = doc.subPages[i].order;
+                    Page.findOne(query, function (err, doc) {
+                        var max = 0;
+                        for (var i = 0 ; i<doc.subPages.length; i++) {
+                            if(doc.subPages[i].order > max) max = doc.subPages[i].order;
+                        }
+
+                        var query = {
+                            '_id': req.body.classList
+                        };
+
+                        var subPage =  {
+                            _id: req.body._id,
+                            order: max+1,
+                            title: req.body._id,
+                            html: ''
+                        };
+
+                        var update = {
+                            $push : {'subPages': subPage}
+                        };
+
+                        Page.update(query, update, function (err, doc) {
+                            callback(null);
+                        });
+                    });
+                    
                 }
-
-                var query = {
-                    '_id': req.body.classList
-                };
-
-                var subPage =  {
-                    _id: req.body._id,
-                    order: max+1,
-                    title: req.body.title,
-                    html: ''
-                };
-
-                var update = {
-                    $push : {'subPages': subPage}
-                };
-
-                Page.update(query, update, function (err, doc) {
-                    console.log("Create!");
-                    res.redirect('/admin');
-                });
+            ],
+            function (err, result) {
+                res.redirect('/admin');
             });
         }
     };

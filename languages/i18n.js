@@ -2,30 +2,19 @@
 (function () {
 	
 	var fs = require('fs');
+    var async = require('async');
     var filename = './languages/zh-tw.json';
 
 	module.exports = {
-		readText: function() {
-
-		},
+		readText: function(key) {
+            var map = JSON.parse(fs.readFileSync(filename, {encoding: 'utf8'}));
+            return map[key];
+        },
 		
 		createText: function(key, value) {
-			var myData = {
-                name:'test',
-                version:'2.0'
-			};
-
-            var map = JSON.parse(fs.readFileSync(filename, 'utf8'));
-            console.log(map);
-
-			fs.writeFile(filename, JSON.stringify(myData) , 'utf8' , function(err) {
-			    if(err) {
-			      console.log(err);
-			    } else {
-			      console.log("JSON saved!");
-			    }
-			}); 
+            var map = JSON.parse(fs.readFileSync(filename, {encoding: 'utf8'}));
+            map[key] = value;
+            fs.writeFileSync(filename, JSON.stringify(map,null,4) , {encoding: 'utf8'});
 		}
 	};
-
 }());

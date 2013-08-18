@@ -1,0 +1,23 @@
+<div class="panel admin">
+	<h3>1. Edit a page</h3>
+	<ul class="nav nav-pills">
+	    <% for(var i=0; i<pages.length; i++) { %>
+	    <li class="dropdown">
+	        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+	        <span class="header-navi-bar-text">
+	            <%= pages[i].title %> 
+	        </span>
+	        <span class="caret"></span>
+	        </a>
+	        <ul class="dropdown-menu">
+	            <% for(var j=0; j<pages[i].subPages.length; j++) { %>
+	            <li><a class="tree-toggle-nav-content" data-first="<%= pages[i]._id %>" data-second="<%= pages[i].subPages[j]._id %>">
+	                <%= pages[i].subPages[j].title %>
+	            </a></li>
+	            <% } %>
+	        </ul>
+	    </li>
+	    <% } %>
+    </ul>
+</div>
+<% include modal/admin-edit-page %>

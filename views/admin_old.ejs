@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Pivotal Search</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+
+      <script src="http://code.jquery.com/jquery.js"></script>
+
+      <!-- styles -->
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css">
+
+      <!-- Latest compiled and minified JavaScript -->
+      <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
+
+      <link href="ckeditor/skins/moono/editor.css?t=D6IE" rel="stylesheet">
+      <style>
+      body {
+        padding: 20px;
+        font-family: "微軟正黑體";
+      }
+
+      h1,h6 {
+        font-family: "微軟正黑體";
+        font-weight: bold;
+      }
+
+      .container {
+        margin: 10px auto;
+        max-width: 1100px;
+      }
+
+      </style>
+
+    </head>
+    <body>
+      <div class="container panel">
+        <h1>網站後台</h1>
+        <div class="container row">
+          <% include admin-left %>
+          <div class="col-lg-9 panel">
+            <div id="info">
+              <h4 id="location"></h4>
+              <button data-toggle="modal" href="#myModal" type="button" id="submitBtn" class="btn btn-primary">save</button><p>
+              <!-- Button trigger modal -->
+
+            </div>
+
+            <div id="editor">
+              <textarea class="ckeditor" name="editor1"></textarea>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
+      <script src="bootstrap/js/bootstrap.min.js"></script>
+      
+
+      <script src="ckeditor/ckeditor.js"></script>
+      <script src="/js/admin.js"></script>
+    </body>
+    </html>
+
+<!-- Modal -->
+<div class="modal fade in" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">系統通知</h4>
+      </div>
+      <div class="modal-body">
+        已完成修改
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
