@@ -5,7 +5,6 @@ $(function () {
     $('.tree-toggle-nav-content').click(function () {
         first = $(this).data('first');
         second = $(this).data('second');
-        alert(first);
         $('#edit-page-Modal').modal('show');
 
         $.get('/admin/p/'+first+'/'+second,function(data,status){
@@ -34,5 +33,6 @@ $(function () {
       $(this).parent().children('ul.tree').toggle(200);
     });
 
-});
 
+
+});
