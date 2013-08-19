@@ -35,16 +35,31 @@
 		margin-left: 100px; 
 		box-shadow: 1px 1px 5px #999;
 		display: inline-block;
+
+        .header-navi-bar-text {
+            font-family : 微軟正黑體;
+            font-size : 15px;
+            font-weight: bolder;
+            color : #FFFFFF;
+            text-outline : #FFFFFF;
+            padding-left: 20px;
+        }
+
+        .nav>li>a:hover , .nav>li>a:focus
+        {
+            background: #76B4D8;
+            color: #000000;
+        }
+
+        .nav>li>a:hover .header-navi-bar-text, .nav>li>a:focus .header-navi-bar-text, 
+        {
+            background: #76B4D8;
+            color: #000000;
+        }
+
 	}
 
-	.header-navi-bar-text {
-		font-family : 微軟正黑體;
-		font-size : 15px;
-		font-weight: bolder;
-		color : #FFFFFF;
-		text-outline : #FFFFFF;
-		padding-left: 20px;
-	}
+
 }
 
 .content {
