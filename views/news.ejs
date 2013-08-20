@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>國立台灣大學新聞研究所</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <% include head %>
+</head>
+
+<body>
+    <% include header %>
+    <div class= "content">
+        <table class="table news-table">
+            <thead>
+              <tr>
+                <th class="date">活動日期</th>
+                <th class="title">標題</th>
+                <th class="hit">瀏覽人次</th>
+              </tr>
+            </thead>
+            <tbody>
+            　<% for (var i = 0 ; i<newsList.length ; i++) { %>
+                <% var date = newsList[i].date; %>
+                <% dateStr = date.getFullYear() + '/' + date.getMonth() + '/' + date.getDate(); %>
+              <tr>
+                <td class="date"><%- dateStr %></td>
+                <td class="title">
+                    <a>
+                    <%= newsList[i].title %>
+                    </a>
+                </td>
+                <td class="hit"><%= newsList[i].hit %></td>
+              </tr>
+              <% } %>
+            </tbody>
+        </table>
+    </div>
+    <% include footer %>
+</body>
+</html>   
