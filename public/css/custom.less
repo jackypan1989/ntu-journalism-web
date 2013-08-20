@@ -65,7 +65,7 @@
 .content {
 	position: relative;
 	width : 900px;
-	height : 500px;
+	min-height : 500px;
 	margin: auto; 
 	box-shadow: 1px 1px 5px #999; 
 
@@ -189,10 +189,9 @@
     }
 
     .header-left {
-        position: relative;
         background : #DFE6F2;
-        background : rgba(223, 230, 242, 1);
-        height : 500px; 
+        background : rgba(223, 230, 242, 1); 
+        height: 100%;
         .list-text {
             background : #DFE6F2;
             background : rgba(223, 230, 242, 1);
@@ -231,5 +230,22 @@
     #edit-page-Modal .modal-dialog {
         width: 1100px;
     }
+
+    #create-news-Modal .modal-dialog {
+        width: 1100px;
+    }
 }
 
+.news-table {
+    margin: 0px auto;
+    width: 600px;
+    .date {
+        width: 20%;
+    }
+    .title {
+        width: 60%;
+    }
+    .hit{
+        width: 20%;
+    }
+}

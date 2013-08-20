@@ -1,8 +1,10 @@
-<ul class="list-group">
-    <% for (var i = 0; i < leftHeader.length; i++) { %>
-    <li class="list-group-item list-text">
-    	<a href="/p/<%= first %>/<%=leftHeader[i]._id %>"><%= leftHeader[i].title %>
-    	</a>
-    </li>
-    <% } %>
-</ul>
+<div class="header-left">
+	<ul class="list-group">
+	    <% for (var i = 0; i < leftHeader.length; i++) { %>
+	    <li class="list-group-item list-text">
+	    	<a href="/p/<%= first %>/<%=leftHeader[i]._id %>"><%= leftHeader[i].title %>
+	    	</a>
+	    </li>
+	    <% } %>
+	</ul>
+</div>
