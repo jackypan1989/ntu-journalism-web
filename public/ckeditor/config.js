@@ -10,4 +10,5 @@ CKEDITOR.editorConfig = function( config ) {
 	// config.uiColor = '#AADC6E';
 	config.width = 1000;
 	config.height = 300;
+	config.filebrowserUploadUrl = '/upload';
 };

@@ -56,6 +56,8 @@ app.get('/news/:id', news.view);
 app.post('/news/:id', news.update);
 app.post('/admin/createNews', news.create);
 
+var upload = require("./utilities/upload.js");
+app.post("/upload", upload);
 
 app.listen(80);
 console.log('Listening on port 80');
