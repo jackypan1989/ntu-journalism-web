@@ -24,6 +24,7 @@
     });
 
     var Page = mongoose.model('Page', pageSchema);
+    exports.model = Page;
 
     module.exports = {
         initialPage: function(req, res){
@@ -124,7 +125,10 @@
 
         getIndex: function(req, res) {
             var pages = res.doc;
-            res.render('index', {pages:pages, content:null});
+            var News = require('./news.js').newsModel;
+            News.find({'type':'news'}, {} ,{sort:{'date':-1}}, function(err,doc){
+                res.render('index', {pages:pages, content:null, news:doc});
+            });
         },
 
         getContent: function (req, res) {

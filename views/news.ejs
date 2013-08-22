@@ -35,7 +35,7 @@
             <tbody>
             　<% for (var i = 0 ; i<newsList.length ; i++) { %>
                 <% var date = newsList[i].date; %>
-                <% dateStr = date.getFullYear() + '/' + date.getMonth() + '/' + date.getDate(); %>
+                <% dateStr = date.getFullYear() + '/' + (date.getMonth()+1) + '/' + date.getDate(); %>
               <tr>
                 <td class="date"><%- dateStr %></td>
                 <td class="title">
@@ -48,8 +48,8 @@
               <% } %>
             </tbody>
         </table>
+        <% include news/modal-news-content %>
     </div>
     <% include footer %>
-    <% include news/modal-news-content %>
 </body>
 </html>   

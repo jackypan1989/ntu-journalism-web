@@ -15,8 +15,10 @@
     });
 
     var News = mongoose.model('News', newsSchema);
-
+    
     module.exports = {
+        newsModel: News,
+
         create: function (req, res) {
             var news = {
                 type: req.body.type,
@@ -33,7 +35,7 @@
             var pages = res.doc;
             var type = req.query.type;
             var query = {'type': type};
-            News.find(query, function (err, doc) {
+            News.find(query, {} ,{sort:{'date':-1}} , function (err, doc) {
                 res.render('news', { type: type, pages:pages, newsList:doc});
             });
         },

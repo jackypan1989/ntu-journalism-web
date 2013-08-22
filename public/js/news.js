@@ -10,5 +10,4 @@ $(function () {
             $('#news-content-Modal .modal-body').html(data.html);
         });
     });
-
 });
