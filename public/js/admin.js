@@ -31,11 +31,6 @@ $(function () {
       });
     });
 
-    // $('#createNewsBtn').click(function(){
-    //   var data = CKEDITOR.instances.newsEditor.getData();
-    //   alert(data);
-    // });
-
     $('.tree-toggle').click(function () {
       $(this).parent().children('ul.tree').toggle(200);
     });

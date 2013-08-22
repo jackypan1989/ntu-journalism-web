@@ -10,10 +10,13 @@
                 <div class="form-group">
                     <label>主分類</label>
                     <select class="type" name="type">
-                        <% for(var i=0; i<pages.length; i++) { %>
+                        <option value="news">最新消息</option>
+                        <option value="activity">近期活動</option>
+                        <option value="enroll">招生資訊</option>
+<!--                         <% for(var i=0; i<pages.length; i++) { %>
                         <option value="<%= pages[i]._id %>"><%= pages[i].title %>
                         </option>
-                        <% } %>
+                        <% } %> -->
                     </select> 
                 </div>
                 <div class="form-group">

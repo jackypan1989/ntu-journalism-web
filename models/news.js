@@ -7,7 +7,7 @@
 
     var newsSchema = new Schema({
         _id: Schema.Types.ObjectId,
-        type: String,
+        type: {type: String, enum: ['news', 'activity', 'enroll']},
         date: { type: Date, default: Date.now },
         title: String,
         html: String,
@@ -31,15 +31,19 @@
 
         index: function (req, res) {
             var pages = res.doc;
-            News.find(function (err, doc) {
-                res.render('news', { pages:pages, newsList:doc});
+            var type = req.query.type;
+            var query = {'type': type};
+            News.find(query, function (err, doc) {
+                res.render('news', { type: type, pages:pages, newsList:doc});
             });
         },
 
         view: function (req, res) {
             var id = req.params.id;
             News.findById(id, function (err, doc) {
-                res.send(doc);
+                News.findByIdAndUpdate(id,{$inc:{'hit':1}}, function(err){
+                    res.send(doc);
+                });
             });
         },
 
