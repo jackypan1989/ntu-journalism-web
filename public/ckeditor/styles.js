@@ -57,6 +57,30 @@ CKEDITOR.stylesSet.add( 'default', [
 	{ name: 'Superscript',		element: 'sup' },
 	*/
 
+	{	
+		name: 'Jour-Title', 
+		element: 'span', 
+		styles: {
+			'background' : '#76B4D8',
+			'font-family' : '微軟正黑體',
+			'font-size' : '16px',
+			'font-weight': 'bolder',
+			'color' : '#182945',
+			'padding-left': '10px',
+			'padding-top': '5px',
+			'padding-bottom': '5px',
+    		'padding-right': '10px',
+		}
+	},
+	
+	{	
+		name: 'Jour-Title-Underline', 
+		element: 'hr', 
+		styles: {
+    		'border-bottom': '1px dotted #76B4D8'
+		}
+	},
+
 	{ name: 'Marker',			element: 'span', attributes: { 'class': 'marker' } },
 
 	{ name: 'Big',				element: 'big' },

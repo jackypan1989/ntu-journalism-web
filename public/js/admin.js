@@ -17,7 +17,7 @@ $(function () {
         });
     });
 
-    $(document).on('click','#submitBtn', function(){
+    $(document).on('click','#updatePageBtn', function(){
       var data = CKEDITOR.instances.editor1.getData();
       //alert(data);
       $.post('/admin/p/'+first+'/'+second,
@@ -29,6 +29,30 @@ $(function () {
       function(data,status){
         location.reload();
       });
+    });
+
+    $(document).on('click','#deletePageBtn', function(){
+      $.post('/admin/p/'+first+'/'+second+'/delete',
+      {
+        first:first,
+        second:second,
+      },
+      function(data,status){
+        location.reload();
+      });
+    });
+
+    $(document).on('click','#deleteNewsBtn', function(){
+      id = 
+      $.post('/news/'+id+'/delete',
+      { 
+
+      },
+      function(data,status){
+        alert("asdd");
+        location.reload();
+      });
+
     });
 
     $('.tree-toggle').click(function () {
