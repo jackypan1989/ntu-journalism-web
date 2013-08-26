@@ -187,6 +187,19 @@
                 });
         },
 
+        delete: function (req, res) {
+            //console.log(req.body);
+            var query = {
+                title: req.body.first,
+            };
+
+            Page.findOneAndUpdate(query,{$pull: {subPages: {title:req.body.second}}},
+                function(err,doc){
+                    res.send(doc+'delete sucess');
+                });
+        },
+
+
         createClass: function (req, res) {
             async.series([
                 function (callback) {

@@ -27,7 +27,7 @@
             };
 
             News.create(news, function (err, doc) {
-                res.send("create!");
+                res.redirect('/admin');
             });
         },
 
@@ -58,13 +58,20 @@
             }
 
             News.findByIdAndUpdate(id, update, function (err, doc) {
-                res.send("update");
+                res.redirect('/admin');
+            });
+        },
+
+        drop: function (req, res) {
+            News.remove({}, function (err, doc) {
+                res.redirect('/admin');
             });
         },
 
         delete: function (req, res) {
-            News.remove({}, function (err, doc) {
-                res.send("remove");
+            var id = req.body.radios;
+            News.findByIdAndRemove(id, function (err, doc) {
+                res.redirect('/admin');
             });
         }
     };
