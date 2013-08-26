@@ -11,5 +11,6 @@ CKEDITOR.editorConfig = function( config ) {
 	config.width = 1000;
 	config.height = 300;
 	config.filebrowserUploadUrl = '/upload';
-
+	config.font_defaultLabel = '微軟正黑體';
+	config.font_names = '微軟正黑體;新細明體;標楷體;Arial;New Roman;Verdana;Geneva,sans-serif'; 
 };

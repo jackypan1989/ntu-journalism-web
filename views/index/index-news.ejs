@@ -8,7 +8,7 @@
     <% var length = (news.length > 3) ? 3 : news.length; %>
     <% for (var i=0 ; i< length; i++) { %>
     <tr>
-      <td><%= news[i].title %></td>
+      <td><a data-toggle="modal" href="#news-content-Modal" data-id="<%= news[i]._id %>"><%= news[i].title %></a></td>
     </tr>
     <% } %>
     <tr>
@@ -16,3 +16,4 @@
     </tr>
   </tbody>
 </table>
+<% include ../news/modal-news-content %>
