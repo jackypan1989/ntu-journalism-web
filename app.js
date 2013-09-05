@@ -25,7 +25,7 @@ app.configure(function(){
 
 console.log(__dirname + '/public');
 
-mongoose.connect('mongodb://localhost/ntuj');
+mongoose.connect('mongodb://140.112.153.67/ntuj');
 
 var page = require('./models/page.js');
 var news = require('./models/news.js');
