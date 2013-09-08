@@ -2,6 +2,13 @@ body {
     font-family : 微軟正黑體;
 }
 
+hr {
+    border:0; 
+    height:3px;
+    margin-top: -9px; 
+    background-color:#76B4D8;
+}
+
 .header {
 	width : 900px;
 	height : 155px;
@@ -52,7 +59,20 @@ body {
             font-weight: bolder;
             color : #FFFFFF;
             text-outline : #FFFFFF;
-            padding-left: 20px;
+            //padding-left: 20px;
+        }
+
+        .nav>li {
+            width:150px;
+            text-align: center;
+        }
+
+        .dropdown-menu {
+            min-width:150px;
+        }
+
+        .dropdown-menu>li {
+            width:150px; 
         }
 
         .nav>li>a:hover , .nav>li>a:focus
@@ -62,11 +82,12 @@ body {
             height : 41px;
         }
 
-        .nav>li>a:hover .header-navi-bar-text, .nav>li>a:focus .header-navi-bar-text, 
+        .nav>li>a:hover .header-navi-bar-text, .nav>li>a:focus .header-navi-bar-text
         {
             background: #76B4D8;
             color: #000000;
         }
+
 
 	}
 
@@ -209,6 +230,9 @@ body {
             background : rgba(223, 230, 242, 1);
             text-align: center;
         }
+        .list-group {
+            margin-bottom: 0px;
+        }
     }
 
     .page-content {
@@ -222,10 +246,11 @@ body {
 	margin: 0px auto;
 	width : 900px;
 	height : 90px;
-	overflow : hidden;
+    padding-left: 20px;
+    padding-right: 20px;
+	//overflow : hidden;
 
 	.left-text {
-        // margin-left: 100px; 
         padding : 10px;
 		font-family : 微軟正黑體;
 		font-size : 11px;
