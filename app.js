@@ -57,7 +57,11 @@ app.post('/login', function(req,res) {
     } else {
        res.redirect('/'); 
     }
+});
 
+app.post('/logout', function(req,res) {
+    delete req.session.user;
+    res.redirect('/');
 });
 
 // for admin

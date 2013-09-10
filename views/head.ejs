@@ -14,6 +14,12 @@ $(function () {
 	
 	$(document).ready( function() {
       $('.dropdown-toggle').dropdown();
+  	  $('.teacherDiv').hide();
+      $('.show_hide').click(function(){
+         $('.teacherDiv').hide();
+         var teacher_id = $(this).attr('href').substr(1);
+         $('.teacherDiv'+teacher_id).show();
+      });
     }); 
 
 });
