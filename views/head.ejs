@@ -14,6 +14,9 @@ $(function () {
 	
 	$(document).ready( function() {
       $('.dropdown-toggle').dropdown();
+      $('.carousel').carousel({
+      		interval: 3500
+      });
   	  $('.teacherDiv').hide();
       $('.show_hide').click(function(){
          $('.teacherDiv').hide();

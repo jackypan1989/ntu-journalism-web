@@ -15,6 +15,7 @@ hr{border:0;height:3px;margin-top:-9px;background-color:#76B4D8}
 .content .link .link-e-forum{position:absolute;top:10px;margin:0px auto;width:345px;height:200px;display:inline-block}
 .content .link .link-fb{position:absolute;top:10px;left:325px;margin:0px auto;width:245px;height:200px;display:inline-block}
 .content .link .link-enroll{position:absolute;top:2px;left:600px;margin:0px auto;width:275px;height:200px;display:inline-block}
+.content .link .sub-link-e-forum,.content .link .sub-link-e-flickr{margin-left:1px}
 .content .carousel{background-repeat:no-repeat;width:600px;height:350px;display:inline-block}.content .carousel .carousel-indicators{top:5%}
 .content .carousel .carousel-control .icon-prev{top:90%;left:25%}
 .content .carousel .carousel-control .icon-next{top:90%;left:75%}
