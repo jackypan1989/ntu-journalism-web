@@ -114,22 +114,31 @@
                     'title': 1,
                     'subPages._id': 1,
                     'subPages.title': 1,
-                    'subPages.html': 1
+                    'subPages.html': 1,
+                    'subPages.order': 1
                 },
                 sort = {
                     sort:{
-                        order: 1 //Sort by Date Added DESC
+                        order: 1//Sort by Date Added DESC
                     }
                 };
             
             Page.find(query, projection, sort, function (err, doc) {
                 for(var i = 0; i < doc.length; i++) {
+                    doc[i].subPages = doc[i].subPages.sort(function(a,b){
+                        if (b.order > a.order) {
+                            return 0;
+                        } else {
+                            return 1;
+                        }
+                    });
                     doc[i].title = i18n.readText(doc[i]._id);
                     for (var j = 0; j < doc[i].subPages.length; j++) {
                         doc[i].subPages[j].title = i18n.readText(doc[i].subPages[j]._id);
                     }
                 }
 
+                //console.log(doc[1].subPages[0].order);
                 res.doc = doc;
                 next();
             });
