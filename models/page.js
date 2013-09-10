@@ -27,6 +27,18 @@
     exports.model = Page;
 
     module.exports = {
+        auth: function(req, res, next) {
+            if (!req.session.user) {
+                 res.redirect('/login');
+            } else {
+                if (req.session.user !== 'admin') {
+                    res.redirect('/');
+                } else {
+                   next();  
+                }
+            }
+        },
+
         initialPage: function(req, res){
             var pages = [
             {

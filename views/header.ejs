@@ -3,6 +3,7 @@
     <div class="header-navi-bar">
         <ul class="nav nav-pills">
         <% for(var i=0; i<pages.length; i++) { %>
+        <% if (pages[i]._id === 'admissions') continue;%>
         <li class="dropdown">
             <a role="button" class="dropdown-toggle" data-toggle="dropdown" href="#">
             <span class="header-navi-bar-text">

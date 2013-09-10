@@ -12,6 +12,9 @@ app.set('view engine', 'ejs');
 app.configure(function(){
     app.use(express.bodyParser());
     app.use(express.methodOverride());
+    app.use( express.cookieParser());
+    app.use(express.session({secret: 'jackypan1989'}));
+});
     app.use(app.router);
     app.use(lessMiddleware({
         // should be the URI to your css directory from the location bar in your browser
@@ -21,7 +24,7 @@ app.configure(function(){
     }));
 
     app.use(express.static(pubDir));
-});
+
 
 console.log(__dirname + '/public');
 
@@ -41,8 +44,24 @@ app.get('/', page.loadPageTitle, page.getIndex);
 // for normal page
 app.get('/p/:first/:second', page.loadPageTitle, page.getContent);
 
+// for login
+app.get('/login', function(req,res) {
+    res.render('login');
+});
+
+app.post('/login', function(req,res) {
+    console.log("asd");
+    if (req.body.account === 'admin' && req.body.password === 'jour5566'){
+        req.session.user = 'admin';
+        res.redirect('/admin');
+    } else {
+       res.redirect('/'); 
+    }
+
+});
+
 // for admin
-app.get('/admin', page.loadPageTitle, function(req,res){
+app.get('/admin',page.auth, page.loadPageTitle, function(req,res){
 	var pages = res.doc;
     var News = require('./models/news.js').newsModel;
 
