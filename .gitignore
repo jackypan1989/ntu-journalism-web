@@ -18,5 +18,7 @@ results
 
 npm-debug.log
 node_modules
+
 public/uploads
-languages
+public/css/custom.css
+languages/zh-tw.json
