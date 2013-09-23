@@ -5,6 +5,8 @@
     var Schema = mongoose.Schema;
 
     var i18n = require('../languages/i18n.js');
+    i18n.select('zh-tw');
+
     var async = require('async');
 
     var pageSchema = new Schema({

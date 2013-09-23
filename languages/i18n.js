@@ -6,6 +6,10 @@
     var filename = './languages/zh-tw.json';
 
 	module.exports = {
+		select: function(lan){
+			filename = './languages/'+lan+'.json';
+		},
+
 		readText: function(key) {
             var map = JSON.parse(fs.readFileSync(filename, {encoding: 'utf8'}));
             return map[key];
