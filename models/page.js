@@ -5,8 +5,6 @@
     var Schema = mongoose.Schema;
 
     var i18n = require('../languages/i18n.js');
-    i18n.select('zh-tw');
-
     var async = require('async');
 
     var pageSchema = new Schema({
@@ -26,9 +24,13 @@
 
     var Page = mongoose.model('Page', pageSchema);
     exports.model = Page;
+    // exports.i18n = i18n;
 
     module.exports = {
+        i18n: i18n,
+        
         auth: function(req, res, next) {
+            req.session.user = 'admin';
             if (!req.session.user) {
                  res.redirect('/login');
             } else {

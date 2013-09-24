@@ -8,5 +8,27 @@
 		<a href="http://www.ntu.edu.tw/">台灣大學</a>
 		<!-- |
 		<a>English</a> -->
+
+		<select id="localeSelect">
+			<% if (locale === 'zh-tw' ) { %>
+				<option selected="selected" value="zh-tw">Chinese</option>
+				<option value='en'>English</option>
+			<% } else { %>
+				<option value="zh-tw">Chinese</option>
+				<option selected="selected" value='en'>English</option>
+			<% } %>
+		</select>
+
+		<script type="text/javascript" >
+        	$('#localeSelect').change(function(){
+        		$.post('/changeLocale',
+		      	{
+		        	locale: $(this).val()
+		      	},
+		      		function(data,status){
+		        	location.reload();
+		      	});
+        	});
+        </script>
 	<div>
 </div>

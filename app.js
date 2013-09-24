@@ -24,14 +24,27 @@ app.configure(function(){
     }));
 
     app.use(express.static(pubDir));
-
+    app.use("/languages", express.static(__dirname + "/languages"));
 
 console.log(__dirname + '/public');
 
-mongoose.connect('mongodb://140.112.153.67/ntuj');
+// mongoose.connect('mongodb://140.112.153.67/ntuj');
 
 var page = require('./models/page.js');
 var news = require('./models/news.js');
+
+// check lan
+app.all('*', function(req, res, next){
+    if (!req.session.locale) {
+        req.session.locale = 'zh-tw';
+        mongoose.connect('mongodb://140.112.153.67/ntuj');
+        console.log(req.session.locale);
+        app.locals.locale = req.session.locale;
+        next();
+    } else {
+        next();
+    }
+});
 
 // for initial
 app.get('/init', page.initialPage);
@@ -86,6 +99,29 @@ app.get('/news/:id', news.view);
 app.post('/news/:id', news.update);
 app.post('/admin/createNews', news.create);
 app.post('/admin/deleteNews', news.delete);
+
+app.post('/changeLocale', 
+    function(req, res){
+        var newLocale = req.body.locale;
+        if (req.session.locale === newLocale) {
+            res.redirect('/');
+        } else {
+            req.session.locale = newLocale;
+            page.i18n.select(newLocale);
+            app.locals.locale = newLocale;
+            
+            mongoose.disconnect();
+            if (newLocale === 'zh-tw') {
+                mongoose.connect('mongodb://140.112.153.67/ntuj');
+                res.redirect('/');
+            } else if (newLocale === 'en') {
+                mongoose.connect('mongodb://140.112.153.67/ntuj-en');
+                res.redirect('/');
+            }
+        }
+    });
+
+
 
 var upload = require("./utilities/upload.js");
 app.post("/upload", upload);

@@ -7,7 +7,11 @@
 
 	module.exports = {
 		select: function(lan){
-			filename = './languages/'+lan+'.json';
+			if (!lan) {
+				filename = './languages/zh-tw.json';
+			} else {
+				filename = './languages/'+lan+'.json';
+			}
 		},
 
 		readText: function(key) {
