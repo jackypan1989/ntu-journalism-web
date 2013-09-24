@@ -11,14 +11,14 @@ hr {
 
 .header {
 	width : 900px;
-	height : 155px;
+	height : 180px;
 	margin: auto;
 	cursor: pointer;
     box-shadow: 0px 0px 5px #999; 
 
     .header-image {
         width : 900px;
-        height : 114px;
+        height : 139px;
     }
 
 	.header-title {
@@ -53,22 +53,27 @@ hr {
 		// box-shadow: 1px 1px 5px #999;
 		display: inline-block;
 
-        .header-navi-bar-text {
-            font-family : 微軟正黑體;
-            font-size : 15px;
-            font-weight: bolder;
-            color : #FFFFFF;
-            text-outline : #FFFFFF;
-            //padding-left: 20px;
-        }
-
         .dropdown, .dropdown-toggle{
             height : 41px;
             margin: 0px auto;
         }
 
         .dropdown-toggle {
-            padding: auto;
+            padding: 0px;
+            display: table;
+            min-width:120px;
+        }
+
+        .header-navi-bar-text {
+            font-family : 微軟正黑體;
+            font-size : 15px;
+            font-weight: bolder;
+            color : #FFFFFF;
+            text-outline : #FFFFFF;
+            vertical-align:middle; 
+            display: table-cell;
+            min-width:120px;
+            //padding-left: 20px;
         }
 
         .nav>li {
@@ -94,7 +99,7 @@ hr {
         }
 
         .dropdown-menu>li {
-            width:120px; 
+            min-width:120px; 
             margin: 0px;
         }
 
@@ -147,7 +152,7 @@ hr {
         .link-fb {
             position: absolute;
             top: 53px;
-            left: 325px;
+            left: 340px;
             margin: 0px auto;
             width : 260px;
             height : 200px;
@@ -157,7 +162,7 @@ hr {
         .link-enroll {
             position: absolute;
             top: 53px;
-            left: 600px;
+            left: 625px;
             margin: 0px auto;
             width : 275px;
             height : 200px;
