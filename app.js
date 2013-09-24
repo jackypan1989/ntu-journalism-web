@@ -37,6 +37,7 @@ var news = require('./models/news.js');
 app.all('*', function(req, res, next){
     if (!req.session.locale) {
         req.session.locale = 'zh-tw';
+        mongoose.disconnect();
         mongoose.connect('mongodb://140.112.153.67/ntuj');
         console.log(req.session.locale);
         app.locals.locale = req.session.locale;
