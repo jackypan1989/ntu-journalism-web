@@ -126,6 +126,11 @@ app.post('/changeLocale',
 
 var upload = require("./utilities/upload.js");
 app.post("/upload", upload);
+app.get("/link", page.loadPageTitle, function(req,res){
+    var pages = res.doc;
+    res.render('link', {pages:pages});
+});
+
 
 app.listen(3000);
 console.log('Listening on port 3000');
