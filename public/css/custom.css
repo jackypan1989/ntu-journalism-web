@@ -1,5 +1,6 @@
 body{font-family:微軟正黑體}
 hr{border:0;height:3px;margin-top:-9px;background-color:#76B4D8}
+h4,.h4{font-family:微軟正黑體}
 .header{width:900px;height:180px;margin:auto;cursor:pointer;box-shadow:0px 0px 5px #999}.header .header-image{width:900px;height:139px}
 .header .header-title{background-image:url(../img/image02.png);width:260px;height:90px;margin-left:90px;margin-top:20px;display:inline-block}
 .header .header-small-title{background-image:url(../img/image03.png);background-repeat:no-repeat;width:310px;height:60px;margin-left:340px;margin-top:20px;display:inline-block}
@@ -30,7 +31,7 @@ hr{border:0;height:3px;margin-top:-9px;background-color:#76B4D8}
 .content .header-left{background:#DFE6F2;background:#dfe6f2;overflow:hidden}.content .header-left .list-text{background:#DFE6F2;background:#dfe6f2;text-align:center}
 .content .header-left .list-group{margin-bottom:0px}
 .content .page-content{padding:30px}
-.footer{background:#1A1A1A;background:#1a1a1a;margin:0px auto;width:900px;height:90px;padding-left:20px;padding-right:20px}.footer .left-text{padding:10px;font-family:微軟正黑體;font-size:11px;line-height:21px;color:#FFFFFF;color:#fff}
+.footer{background:#1A1A1A;background:#1a1a1a;margin:0px auto;width:900px;height:105px;padding-left:20px;padding-right:20px}.footer .left-text{padding:10px;font-family:微軟正黑體;font-size:11px;line-height:21px;color:#FFFFFF;color:#fff}
 .footer .right-text{padding:10px;font-family:微軟正黑體;font-size:11px;line-height:21px;text-align:right}.footer .right-text a{color:#FFFFFF;color:#fff}
 .admin{margin:0px auto;padding:20px;font-family:"微軟正黑體";max-width:1100px}.admin #edit-page-Modal .modal-dialog{width:1100px}
 .admin #create-news-Modal .modal-dialog{width:1100px}

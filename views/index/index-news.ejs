@@ -2,7 +2,11 @@
   <tbody>
     <tr>
       <td><img src="img/image06.png"></img>
+          <% if(locale==='zh-tw') { %>
           <span class="title">最新消息</span>
+          <% } else { %>
+          <span class="title">News</span>
+          <% } %>
       </td>
     </tr>
     <% var length = (news.length > 3) ? 3 : news.length; %>

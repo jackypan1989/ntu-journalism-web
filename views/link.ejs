@@ -13,8 +13,16 @@
     <% include header %>
     <div class="content">      
         <div class="news-title">
+            <% if (locale==='zh-tw') { %>
+
             相關連結
-            <h4>台灣大學</h4>
+            <a target="_blank" href="http://www.ntu.edu.tw/"><h4>台灣大學</h4></a>
+
+            <% } else { %>
+            Link
+            <a target="_blank" href="http://www.ntu.edu.tw/"><h4>NTU</h4></a>
+
+            <% } %>
         </div>
     </div>
     <% include footer %>
