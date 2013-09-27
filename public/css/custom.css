@@ -6,7 +6,7 @@ h4,.h4{font-family:微軟正黑體}
 .header .header-small-title{background-image:url(../img/image03.png);background-repeat:no-repeat;width:310px;height:60px;margin-left:340px;margin-top:20px;display:inline-block}
 .header .header-navi-bar{background:#004F78;width:900px;height:41px;display:inline-block}.header .header-navi-bar .dropdown,.header .header-navi-bar .dropdown-toggle{height:41px;margin:0px auto}
 .header .header-navi-bar .dropdown-toggle{padding:0px;display:table;min-width:120px}
-.header .header-navi-bar .header-navi-bar-text{font-family:微軟正黑體;font-size:15px;font-weight:bolder;color:#FFFFFF;text-outline:#FFFFFF;vertical-align:middle;display:table-cell;min-width:120px}
+.header .header-navi-bar .header-navi-bar-text{font-family:微軟正黑體;font-size:14px;font-weight:bolder;color:#FFFFFF;text-outline:#FFFFFF;vertical-align:middle;display:table-cell;min-width:120px}
 .header .header-navi-bar .nav>li{width:120px;text-align:center}
 .header .header-navi-bar .nav>li>a:hover,.header .header-navi-bar .nav>li>a:focus{background:#76B4D8;color:#000000;height:41px}
 .header .header-navi-bar .nav>li>a:hover .header-navi-bar-text,.header .header-navi-bar .nav>li>a:focus .header-navi-bar-text{background:#76B4D8;color:#000000}
