@@ -9,30 +9,29 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item active">
-      <a target="_blank" href="http://www.flickr.com/photos/101076267@N05/sets/72157636895314746/"><img src="img/carousels/7「不能戳的秘密2013 II - 國家機器」特映會.jpg" alt=""></a>
-      <div class="carousel-caption">
-      <div class='carousel-text'>「不能戳的秘密2013 II - 國家機器」特映會</div>
-      </div>
-    </div>
-    <div class="item">
-      <a target="_blank" href="http://www.journalism.ntu.edu.tw/">
-      <img src="img/carousels/8美國 Temple University 傳播學院副院長Deborah Cai 演講.jpg" alt=""></a>
-      <div class="carousel-caption">
-      <div class='carousel-text'>美國Temple University傳播學院副院長Deborah Cai演講</div>
-      </div>
-    </div>
-    <div class="item">
-      <a target="_blank" href="http://www.flickr.com/photos/101076267@N05/sets/72157635389149277/">
-      <img src="img/carousels/1臺大新聞所一百級小畢典實況.jpg" alt=""></a>
+      <a target="_blank" href="http://www.flickr.com/photos/101076267@N05/sets/72157635389149277/"><img src="img/carousels/1臺大新聞所一百級小畢典實況.jpg" alt=""></a>
       <div class="carousel-caption">
       <div class='carousel-text'>臺大新聞所一百級小畢典實況</div>
       </div>
     </div>
     <div class="item">
-       <a target="_blank" href="http://ntujournal.blogspot.tw/2013/02/archie-tse_6580.html">
+      <a target="_blank" href="http://ntujournal.blogspot.tw/2013/02/archie-tse_6580.html">
       <img src="img/carousels/2紐約時報圖像記者Archie Tse演講.jpg" alt=""></a>
       <div class="carousel-caption">
       <div class='carousel-text'>紐約時報圖像記者Archie Tse演講</div>
+      </div>
+    </div>
+    <div class="item">
+      <a target="_blank" href="http://www.flickr.com/photos/101076267@N05/sets/72157635397686846/">
+      <img src="img/carousels/3學生參與「中華新聞傳播學術聯盟第四屆研討會」.jpg" alt=""></a>
+      <div class="carousel-caption">
+      <div class='carousel-text'>學生參與「中華新聞傳播學術聯盟第四屆研討會」</div>
+      </div>
+    </div>
+    <div class="item">
+      <img src="img/carousels/4臺大新聞所駐所傑出記者柯金源.jpg" alt="">
+      <div class="carousel-caption">
+      <div class='carousel-text'>臺大新聞所駐所傑出記者柯金源</div>
       </div>
     </div>
     <div class="item">

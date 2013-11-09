@@ -24,7 +24,7 @@
     "class schedule and course outline": "課表與課程大綱",
     "course regulations": "修業規定",
     "statute": "規章與表單",
-    " e-forum": "台大新聞E論壇",
+    " e-forum": "台大新聞論壇",
     "books": "報導專書",
     "newsletter": "新聞所訊",
     "master's thesis": "畢業生論文",
@@ -43,7 +43,10 @@
     "admissions": "招生",
     "qualifying examination pamphlets": "甄試入學簡章",
     "Entrance examination pamphlets": "考試入學簡章",
-    "foreign students":"口試試務公告",
-    "oral examination introduction":"口試試務公告",
-    "past examinations":"歷屆考古題"
+    "foreign students": "僑生與外籍生招生",
+    "oral examination introduction": "口試試務公告",
+    "past examinations": "歷屆考古題",
+    "fulltime": "專任教師",
+    "activity": "本所活動",
+    "nearterm activities": "近期活動"
 }
