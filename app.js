@@ -114,11 +114,15 @@ app.post('/changeLocale',
             
             mongoose.disconnect();
             if (newLocale === 'zh-tw') {
-                mongoose.connect('mongodb://140.112.153.67/ntuj');
-                res.redirect('/');
+                setTimeout(function () {
+                    mongoose.connect('mongodb://140.112.153.67/ntuj');
+                    res.redirect('/');
+                }, 500);
             } else if (newLocale === 'en') {
-                mongoose.connect('mongodb://140.112.153.67/ntuj-en');
-                res.redirect('/');
+                setTimeout(function () {
+                    mongoose.connect('mongodb://140.112.153.67/ntuj-en');
+                    res.redirect('/');
+                }, 500);
             }
         }
     });
